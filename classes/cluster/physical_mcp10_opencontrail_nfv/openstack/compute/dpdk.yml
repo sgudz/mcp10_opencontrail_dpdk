@@ -1,0 +1,3 @@
+classes:
+- cluster.physical_mcp10_opencontrail_nfv.openstack.compute
+- system.opencontrail.compute.dpdk

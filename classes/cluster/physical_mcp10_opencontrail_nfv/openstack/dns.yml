@@ -1,0 +1,54 @@
+classes:
+# - system.designate.server.cluster
+#  TODO: salt-formula-designate is not yet available
+- system.bind.server.single
+- cluster.physical_mcp10_opencontrail_nfv
+parameters:
+  _param:
+    keepalived_vip_interface: ens3
+    keepalived_vip_virtual_router_id: 49
+    cluster_vip_address: ${_param:openstack_dns_address}
+    cluster_local_address: ${_param:single_address}
+    cluster_node01_hostname: dns01
+    cluster_node01_address: ${_param:openstack_dns_node01_address}
+    cluster_node02_hostname: dns02
+    cluster_node02_address: ${_param:openstack_dns_node02_address}
+  linux:
+    network:
+      interface:
+        ens3: ${_param:linux_single_interface}
+  designate:
+    server:
+      backend:
+        bind9:
+          rndc_key: Q27CeyBm9+o6jW6EApkQ9t1KUblTjw==        
+  bind:
+    server:
+      key:
+        designate:
+          secret: "Q27CeyBm9+o6jW6EApkQ9t1KUblTjw=="
+          algorithm: hmac-sha512
+      allow-new-zones: true
+      query: true
+      control:
+        local:
+          enabled: true
+          bind:
+            address: 127.0.0.1
+            port: 935
+          allow:
+            - 127.0.0.1
+            - ${_param:single_address}
+          keys:
+            - designate 
+  client:
+    enabled: true
+    option:
+      default:
+        server: 127.0.0.1
+        port: 953
+        key: designate
+    key:
+      designate:
+        secret: "Q27CeyBm9+o6jW6EApkQ9t1KUblTjw=="
+        algorithm: hmac-sha512

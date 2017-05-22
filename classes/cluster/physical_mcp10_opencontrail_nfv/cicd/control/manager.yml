@@ -1,0 +1,4 @@
+classes:
+  - system.docker.swarm.manager
+  - cluster.physical_mcp10_opencontrail_nfv
+  - cluster.physical_mcp10_opencontrail_nfv.cicd.control

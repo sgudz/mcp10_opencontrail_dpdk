@@ -1,0 +1,127 @@
+classes:
+- system.linux.system.repo.mcp.salt
+- system.openssh.client.lab
+- system.salt.master.pkg
+#- system.salt.master.formula.git.foundation
+- system.salt.minion.ca.salt_master
+- system.salt.master.api
+- system.reclass.storage.salt
+- system.reclass.storage.system.physical_control_cluster
+- system.reclass.storage.system.opencontrail_analytics_cluster
+- system.reclass.storage.system.opencontrail_control_cluster
+- system.reclass.storage.system.openstack_control_cluster
+- system.reclass.storage.system.openstack_dns_cluster
+- system.reclass.storage.system.openstack_proxy_cluster
+- system.reclass.storage.system.openstack_database_cluster
+- system.reclass.storage.system.openstack_message_queue_cluster
+- system.reclass.storage.system.openstack_telemetry_cluster
+- system.reclass.storage.system.stacklight_log_cluster
+- system.reclass.storage.system.stacklight_monitor_cluster
+- system.reclass.storage.system.stacklight_telemetry_cluster
+- system.reclass.storage.system.cicd_control_cluster
+- cluster.physical_mcp10_opencontrail_nfv
+parameters:
+  _param:
+    salt_master_base_environment: prd
+    reclass_data_repository: "https://gerrit.mcp.mirantis.net/salt-models/mcp-baremetal-lab"
+    reclass_data_revision: master
+    reclass_config_master: ${_param:infra_config_deploy_address}
+    single_address: ${_param:infra_config_address}
+    deploy_address: ${_param:infra_config_deploy_address}
+    salt_master_host: ${_param:infra_config_address}
+  salt:
+    master:
+      accept_policy: open_mode
+  reclass:
+    storage:
+      node:
+        infra_kvm_node01:
+          params:
+            keepalived_vip_priority: 100
+            linux_system_codename: xenial
+        infra_kvm_node02:
+          params:
+            keepalived_vip_priority: 101
+            linux_system_codename: xenial
+        infra_kvm_node03:
+          params:
+            keepalived_vip_priority: 102
+            linux_system_codename: xenial
+            primary_second_nic: enp3s0f0
+        openstack_control_node01:
+          classes:
+          - cluster.${_param:cluster_name}.openstack.control_init
+        openstack_database_node01:
+          classes:
+          - cluster.${_param:cluster_name}.openstack.database_init
+        stacklight_log_node01:
+          classes:
+          - system.elasticsearch.client.single
+        stacklight_monitor_node01:
+          classes:
+          - system.grafana.client.single
+          - system.kibana.client.single
+        openstack_compute_node01:
+          name: ${_param:openstack_compute_node01_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.openstack.compute
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            control_address: ${_param:openstack_compute_node01_control_address}
+            single_address: ${_param:openstack_compute_node01_single_address}
+            compute_vrouter_dpdk_mac_address: 90:e2:ba:19:c2:19
+            compute_vrouter_dpdk_pci: "'0000:05:00.1'"
+            primary_first_nic: enp5s0f1
+        openstack_compute_node02:
+          name: ${_param:openstack_compute_node02_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.openstack.compute
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            control_address: ${_param:openstack_compute_node02_control_address}
+            single_address: ${_param:openstack_compute_node02_single_address}
+            compute_vrouter_dpdk_mac_address: 00:1b:21:87:21:99
+            compute_vrouter_dpdk_pci: "'0000:05:00.1'"
+            primary_first_nic: enp5s0f1
+        openstack_compute_node03:
+          name: ${_param:openstack_compute_node03_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.openstack.compute
+          - cluster.${_param:cluster_name}.openstack.compute.dpdk
+          - cluster.${_param:cluster_name}.openstack.compute.sriov
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            control_address: ${_param:openstack_compute_node03_control_address}
+            single_address: ${_param:openstack_compute_node03_single_address}
+            compute_vrouter_dpdk_mac_address: 0c:c4:7a:33:27:23
+            compute_vrouter_dpdk_pci: "'0000:0a:00.1'"
+            primary_first_nic: enp10s0f1
+            sriov_nic01_device_name: ens4f1
+            sriov_nic01_numvfs: 7
+            sriov_nic01_physical_network: physnet1
+            sriov_unsafe_interrupts: False
+
+        openstack_gateway_node01:
+          name: ${_param:opencontrail_gateway_node01_hostname}
+          domain: ${_param:cluster_domain}
+          classes:
+          - cluster.${_param:cluster_name}.opencontrail.gateway
+          params:
+            salt_master_host: ${_param:reclass_config_master}
+            linux_system_codename: trusty
+            single_address: ${_param:opencontrail_gateway_node01_single_address}
+        openstack_telemetry_node01:
+          params:
+            keepalived_vip_priority: 103
+        openstack_telemetry_node02:
+          params:
+            keepalived_vip_priority: 102
+        openstack_telemetry_node03:
+          params:
+            keepalived_vip_priority: 101
