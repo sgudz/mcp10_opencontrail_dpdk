@@ -1,0 +1,32 @@
+classes:
+- system.linux.system.repo.ubuntu
+- system.linux.system.repo.saltstack.xenial
+- system.linux.system.repo.mcp.openstack
+- system.linux.system.repo.mcp.extra
+- system.linux.system.repo.mcp.contrail
+- system.nova.compute.nfv.hugepages
+- system.nova.compute.nfv.cpu_pinning
+- system.nova.compute.cluster
+- system.opencontrail.compute.cluster
+- system.opencontrail.client.cluster
+- system.opencontrail.client.resource.virtual_router
+- system.ceilometer.agent.cluster
+- cluster.scale-nfv-contrail.infra
+parameters:
+  _param:
+    cluster_vip_address: ${_param:openstack_control_address}
+    cluster_local_address: ${_param:single_address}
+    cluster_node01_hostname: ${_param:openstack_control_node01_hostname}
+    cluster_node01_address: ${_param:openstack_control_node01_address}
+    cluster_node02_hostname: ${_param:openstack_control_node02_hostname}
+    cluster_node02_address: ${_param:openstack_control_node02_address}
+    cluster_node03_hostname: ${_param:openstack_control_node03_hostname}
+    cluster_node03_address: ${_param:openstack_control_node03_address}
+    opencontrail_compute_address: ${_param:tenant_address}
+    nova_vncproxy_url: https://${_param:cluster_public_host}:6080
+    primary_first_nic: ens11f0
+    primary_second_nic: ens11f1
+
+  linux:
+    network:
+      interface:
