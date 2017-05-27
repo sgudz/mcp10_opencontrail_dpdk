@@ -1,4 +1,0 @@
-classes:
-- system.mysql.client.single
-- system.mysql.client.database.designate
-- system.mysql.client.database.designate_pool_manager
