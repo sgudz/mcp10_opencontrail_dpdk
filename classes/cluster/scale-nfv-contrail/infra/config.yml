@@ -40,7 +40,7 @@ parameters:
           params:
             keepalived_vip_priority: 101
             linux_system_codename: xenial
-            eploy_nic: enp9s0f0
+            deploy_nic: enp9s0f0
         infra_kvm_node03:
           params:
             keepalived_vip_priority: 102
