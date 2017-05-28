@@ -49,6 +49,8 @@ parameters:
         openstack_control_node01:
           classes:
           - cluster.${_param:cluster_name}.openstack.control_init
+          params:
+            linux_system_codename: xenial
         openstack_control_node02:
           params:
             linux_system_codename: xenial
@@ -58,6 +60,8 @@ parameters:
         openstack_database_node01:
           classes:
           - cluster.${_param:cluster_name}.openstack.database_init
+          params:
+            linux_system_codename: xenial
         openstack_database_node02:
           params:
             linux_system_codename: xenial
