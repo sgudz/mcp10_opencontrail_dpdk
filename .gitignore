@@ -1,2 +1,6 @@
-classes/service/*
-nodes/_generated/*
+classes/service
+nodes/_generated
+workspace
+tmp
+
+.kitchen
