@@ -26,6 +26,7 @@ parameters:
     nova_vncproxy_url: https://${_param:cluster_public_host}:6080
     primary_first_nic: ens11f0
     primary_second_nic: ens11f1
+    opencontrail_compute_iface: ${_param:primary_first_nic}
   nova:
     compute:
       sriov:
