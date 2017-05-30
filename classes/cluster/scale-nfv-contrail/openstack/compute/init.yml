@@ -59,6 +59,7 @@ parameters:
           enabled: true
           name: ${_param:primary_first_nic}
           type: eth
+          proto: manual
           mtu: 9000
           pre_up_cmds:
           - /sbin/ethtool --offload ${_param:primary_first_nic} rx off tx off tso off gro off
