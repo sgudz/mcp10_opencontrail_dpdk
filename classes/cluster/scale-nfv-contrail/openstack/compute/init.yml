@@ -22,7 +22,7 @@ parameters:
     cluster_node02_address: ${_param:openstack_control_node02_address}
     cluster_node03_hostname: ${_param:openstack_control_node03_hostname}
     cluster_node03_address: ${_param:openstack_control_node03_address}
-    opencontrail_compute_address: ${_param:tenant_address}
+    opencontrail_compute_address: ${_param:single_address}
     nova_vncproxy_url: https://${_param:cluster_public_host}:6080
     primary_first_nic: ens11f0
     primary_second_nic: ens11f1
@@ -30,3 +30,36 @@ parameters:
   linux:
     network:
       interface:
+#        eth0:
+#          enabled: true
+#          type: eth
+#          proto: dhcp
+#         name: ${_param:deploy_nic}
+        eth1:
+          enabled: true
+          name: ${_param:primary_first_nic}
+          type: eth
+          mtu: 9000
+          pre_up_cmds:
+          - /sbin/ethtool --offload ${_param:primary_first_nic} rx off tx off tso off gro off
+        eth1.1806:
+          name: ens11f0.${_param:control_vlan}
+          enabled: true
+          proto: manual
+          type: vlan
+          use_interfaces:
+          - bond0
+        vhost0:
+          enabled: true
+          type: eth
+          mtu: 9000
+          address: ${_param:single_address}
+          netmask: 255.255.255.0
+          pre_up_cmds:
+          - /usr/lib/contrail/if-vhost0
+          use_interfaces:
+  #        - bond0.2429
+          - bond0.${_param:control_vlan}
+          name_servers:
+          - 8.8.8.8
+          - 8.8.4.4
