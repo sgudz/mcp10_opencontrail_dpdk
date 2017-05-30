@@ -13,7 +13,7 @@ classes:
 - system.horizon.server.single
 - system.salt.minion.cert.proxy.openstack
 - system.salt.minion.cert.proxy.pki
-- system.sphinx.server.doc.reclass
+#- system.sphinx.server.doc.reclass
 - service.keepalived.cluster.single
 - cluster.scale-nfv-contrail.infra
 - cluster.scale-nfv-contrail.openstack.dashboard
