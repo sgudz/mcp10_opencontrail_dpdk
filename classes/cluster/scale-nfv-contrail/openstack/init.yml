@@ -3,13 +3,14 @@ parameters:
     openstack_region: RegionOne
     admin_email: root@localhost
     openstack_version: ocata
-    compute_vrouter_taskset: "-c 1,2"
-    compute_vrouter_socket_mem: "1024"
+    compute_vrouter_taskset: "'0x780007c00'"
+    compute_vrouter_socket_mem: "1024,1024"
     compute_hugepages_size: 1G
-    nova_cpu_pinning: 1,2,3,4,5,7,8,9,10,11
-    compute_hugepages_count: 16
+    nova_cpu_pinning: "15-19,35-39"
+    compute_hugepages_size: 1G
+    compute_hugepages_count: 64
     compute_hugepages_mount: /mnt/hugepages_1G
-    compute_kernel_isolcpu: ${_param:nova_cpu_pinning}
+    compute_kernel_isolcpu: 1,2,3,4,5,6,7,8,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,30,31,32,33,34,35,36,37,38,39
     sriov_nic01_device_name: eth7
     sriov_nic01_numvfs: 7
     sriov_nic01_physical_network: physnet1
@@ -109,10 +110,10 @@ parameters:
     openstack_compute_node02_hostname: cmp002
     openstack_compute_node01_control_address: 10.167.4.101
     openstack_compute_node01_single_address: 10.167.4.101
-    openstack_compute_node01_tenant_address: 10.167.6.101
+    openstack_compute_node01_tenant_address: 10.167.4.101
     openstack_compute_node02_control_address: 10.167.4.101
     openstack_compute_node02_single_address: 10.167.4.102
-    openstack_compute_node02_tenant_address: 10.167.6.102
+    openstack_compute_node02_tenant_address: 10.167.4.102
     #openstack_compute_rack01_single_subnet: 10.167.0.4
     #openstack_compute_rack01_tenant_subnet: 10.167.6
     #openstack_compute_rack01_hostname: cmp

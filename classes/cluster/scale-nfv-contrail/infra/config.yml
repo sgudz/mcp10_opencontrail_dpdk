@@ -104,14 +104,9 @@ parameters:
             control_address: ${_param:openstack_compute_node01_control_address}
             single_address: ${_param:openstack_compute_node01_single_address}
             tenant_address: ${_param:openstack_compute_node01_tenant_address}
-            sriov_nic01_device_name: ens11f1
-            sriov_nic01_numvfs: 7
-            sriov_nic01_physical_network: physnet1
             sriov_unsafe_interrupts: False
             compute_vrouter_dpdk_mac_address: 68:05:ca:30:03:f8
             compute_vrouter_dpdk_pci: "'0000:81:00.0'"
-            compute_vrouter_taskset: "-c 1,2"
-            compute_vrouter_socket_mem: "1024,1024"
         openstack_compute_node02:
           name: ${_param:openstack_compute_node02_hostname}
           domain: ${_param:cluster_domain}
@@ -124,14 +119,9 @@ parameters:
             control_address: ${_param:openstack_compute_node02_control_address}
             single_address: ${_param:openstack_compute_node02_single_address}
             tenant_address: ${_param:openstack_compute_node02_tenant_address}
-            sriov_nic01_device_name: ens11f1
-            sriov_nic01_numvfs: 7
-            sriov_nic01_physical_network: physnet1
             sriov_unsafe_interrupts: False
             compute_vrouter_dpdk_mac_address: 3c:fd:fe:9e:7e:30
             compute_vrouter_dpdk_pci: "'0000:81:00.0'"
-            compute_vrouter_taskset: "-c 1,2"
-            compute_vrouter_socket_mem: "0,1024,1024,0"
         # openstack_compute_rack01:
         #   name: ${_param:openstack_compute_rack01_hostname}<<count>>
         #   domain: ${_param:cluster_domain}
