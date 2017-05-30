@@ -105,9 +105,17 @@ parameters:
     stacklight_log_address: ${_param:openstack_telemetry_address}
 
     # OpenStack Compute
-    openstack_compute_rack01_single_subnet: 10.167.0.4
-    openstack_compute_rack01_tenant_subnet: 10.167.6
-    openstack_compute_rack01_hostname: cmp
+    openstack_compute_node01_hostname: cmp001
+    openstack_compute_node02_hostname: cmp002
+    openstack_compute_node01_control_address: 10.167.4.101
+    openstack_compute_node01_single_address: 10.167.4.101
+    openstack_compute_node01_tenant_address: 10.167.6.101
+    openstack_compute_node02_control_address: 10.167.4.101
+    openstack_compute_node02_single_address: 10.167.4.102
+    openstack_compute_node02_tenant_address: 10.167.6.102
+    #openstack_compute_rack01_single_subnet: 10.167.0.4
+    #openstack_compute_rack01_tenant_subnet: 10.167.6
+    #openstack_compute_rack01_hostname: cmp
 
     # openstack service hostnames
     openstack_proxy_hostname: prx
