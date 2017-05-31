@@ -80,7 +80,7 @@ parameters:
           mtu: 9000
           address: ${_param:single_address}
           netmask: 255.255.255.0
-          #pre_up_cmds:
+          pre_up_cmds:
           - /usr/lib/contrail/if-vhost0
           use_interfaces:
           #- bond0.2429
