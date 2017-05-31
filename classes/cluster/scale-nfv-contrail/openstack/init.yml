@@ -16,8 +16,6 @@ parameters:
     sriov_nic01_physical_network: physnet1
     sriov_unsafe_interrupts: False
 
-    horizon_identity_version: 2
-
     mysql_grafana_password: password
     stacklight_environment: env
 
@@ -72,7 +70,7 @@ parameters:
     horizon_secret_key: hKGCi9dP6SYIR1DzCSkTNoHAr1iJpgzupwBvoyDBd8OMD3QeYr58Y7I01qvs6NFD
     horizon_identity_host: ${_param:openstack_control_address}
     horizon_identity_encryption: none
-    horizon_identity_version: 3
+    horizon_identity_version: 2
     mongodb_server_replica_set: ceilometer
     mongodb_ceilometer_password: i5p1rlKDv6VuBcxz
     mongodb_admin_password: Ec4xgA4Ax9opvqEw
