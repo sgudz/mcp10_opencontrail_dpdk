@@ -24,17 +24,17 @@ parameters:
     cluster_node03_address: ${_param:openstack_control_node03_address}
     opencontrail_compute_address: ${_param:single_address}
     nova_vncproxy_url: https://${_param:cluster_public_host}:6080
-    primary_first_nic: ens11f0
+    #primary_first_nic: ens11f0
     #primary_second_nic: ens11f1
     opencontrail_compute_iface: ${_param:primary_first_nic}
   nova:
     compute:
       sriov:
         sriov_nic01:
-          devname: ens11f1
+          devname: ${_param:sriov_first_nic}
           physical_network: physnet1
         sriov_nic02:
-          devname: ens3f0
+          devname: ${_param:sriov_second_nic}
           physical_network: physnet2
   opencontrail:
     common:
@@ -49,9 +49,9 @@ parameters:
         local: |
           #!/bin/sh -e
           # Enabling 7 VFs on ens11f0 PF
-          echo 7 > /sys/class/net/ens11f0/device/sriov_numvfs; sleep 2; ip link set ens11f0 up
+          echo 7 > /sys/class/net/${_param:sriov_first_nic}/device/sriov_numvfs; sleep 2; ip link set ${_param:sriov_first_nic} up
           # Enabling 7 VFs on ens3f0 PF
-          echo 7 > /sys/class/net/ens3f0/device/sriov_numvfs; sleep 2; ip link set ens3f0 up
+          echo 7 > /sys/class/net/${_param:sriov_second_nic}/device/sriov_numvfs; sleep 2; ip link set ${_param:sriov_second_nic} up
     network:
       interface:
        # eth0:
