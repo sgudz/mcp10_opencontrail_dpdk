@@ -84,7 +84,8 @@ parameters:
           - /usr/lib/contrail/if-vhost0
           use_interfaces:
           #- bond0.2429
-          - ${_param:primary_first_nic}.${_param:control_vlan}
+          - ens11f0.1806
+          #- ${_param:primary_first_nic}.${_param:control_vlan}
           name_servers:
           - 8.8.8.8
           - 8.8.4.4
