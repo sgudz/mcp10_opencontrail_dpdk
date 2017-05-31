@@ -16,6 +16,8 @@ parameters:
     sriov_nic01_physical_network: physnet1
     sriov_unsafe_interrupts: False
 
+    horizon_identity_version: 2
+
     mysql_grafana_password: password
     stacklight_environment: env
 
