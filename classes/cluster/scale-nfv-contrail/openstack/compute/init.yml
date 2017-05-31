@@ -36,6 +36,10 @@ parameters:
         sriov_nic02:
           devname: ens3f0
           physical_network: physnet2
+  opencontrail:
+    common:
+      network:
+        host: ${_param:openstack_control_address}
   linux:
     system:
       kernel:
@@ -77,7 +81,7 @@ parameters:
           address: ${_param:single_address}
           netmask: 255.255.255.0
           #pre_up_cmds:
-          #- /usr/lib/contrail/if-vhost0
+          - /usr/lib/contrail/if-vhost0
           use_interfaces:
           #- bond0.2429
           - ${_param:primary_first_nic}.${_param:control_vlan}
