@@ -24,7 +24,7 @@ parameters:
     cluster_node03_address: ${_param:openstack_control_node03_address}
     opencontrail_compute_address: ${_param:single_address}
     nova_vncproxy_url: https://${_param:cluster_public_host}:6080
-    #primary_first_nic: ens11f0
+    primary_first_nic: ens11f0
     #primary_second_nic: ens11f1
     opencontrail_compute_iface: ${_param:primary_first_nic}
   nova:
