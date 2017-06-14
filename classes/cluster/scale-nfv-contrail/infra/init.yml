@@ -21,7 +21,7 @@ parameters:
     
     cluster_domain: scale-nfv-contrail
     cluster_name: scale-nfv-contrail
-    cluster_public_host: ${_param:openstack_proxy_address}
+    cluster_public_host: 172.16.55.230 #${_param:openstack_proxy_address}
     infra_kvm_address: 10.167.4.240
     infra_kvm_node01_address: 10.167.4.241
     infra_kvm_node02_address: 10.167.4.242
