@@ -1,5 +1,5 @@
 classes:
-- cluster.scale-nfv-contrail._team
+- cluster.scale_nfv_contrail._team
 parameters:
   _param:
     openstack_region: RegionOne

@@ -1,0 +1,3 @@
+classes:
+- system.nova.compute.nfv.sriov
+- cluster.scale_nfv_contrail.openstack.compute

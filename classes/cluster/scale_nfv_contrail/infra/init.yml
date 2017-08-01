@@ -6,8 +6,8 @@ classes:
 - system.openssh.server.team.mcp_qa
 - system.openssh.server.team.l1_support
 - system.openssh.server.team.l2_support
-- cluster.scale-nfv-contrail.openstack
-- cluster.scale-nfv-contrail.opencontrail
+- cluster.scale_nfv_contrail.openstack
+- cluster.scale_nfv_contrail.opencontrail
 parameters:
   _param:
     apt_mk_version: nightly
@@ -20,7 +20,7 @@ parameters:
     infra_config_deploy_address: 172.16.52.117
     
     cluster_domain: mcp11-contrail-dpdk.local
-    cluster_name: scale-nfv-contrail
+    cluster_name: scale_nfv_contrail
     cluster_public_host: 172.16.55.230 #${_param:openstack_proxy_address}
     infra_kvm_address: 10.167.4.240
     infra_kvm_node01_address: 10.167.4.241

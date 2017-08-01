@@ -13,7 +13,7 @@ classes:
 - system.galera.server.database.keystone
 - system.galera.server.database.nova
 - system.galera.server.database.neutron
-- cluster.scale-nfv-contrail.infra
+- cluster.scale_nfv_contrail.infra
 parameters:
   _param:
     keepalived_vip_interface: ens3

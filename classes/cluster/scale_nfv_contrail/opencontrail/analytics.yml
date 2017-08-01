@@ -9,7 +9,7 @@ classes:
 - system.opencontrail.client.resource.analytics_node
 - system.opencontrail.client.resource.database_node
 - system.opencontrail.control.analytics
-- cluster.scale-nfv-contrail.infra
+- cluster.scale_nfv_contrail.infra
 parameters:
   _param:
     openstack_version: mitaka

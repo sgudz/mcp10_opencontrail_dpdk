@@ -1,5 +1,5 @@
 classes:
-- cluster.scale-nfv-contrail.infra.config
+- cluster.scale_nfv_contrail.infra.config
 parameters:
     _param:
         linux_system_codename: xenial

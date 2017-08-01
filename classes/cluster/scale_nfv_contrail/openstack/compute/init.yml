@@ -11,7 +11,7 @@ classes:
 - system.opencontrail.client.cluster
 - system.opencontrail.client.resource.virtual_router
 #- system.ceilometer.agent.cluster
-- cluster.scale-nfv-contrail.infra
+- cluster.scale_nfv_contrail.infra
 parameters:
   _param:
     cluster_vip_address: ${_param:openstack_control_address}

@@ -1,5 +1,5 @@
 classes:
-- cluster.scale-nfv-contrail.infra
+- cluster.scale_nfv_contrail.infra
 parameters:
   linux:
     network:

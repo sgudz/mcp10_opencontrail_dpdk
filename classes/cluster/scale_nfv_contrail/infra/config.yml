@@ -17,7 +17,7 @@ classes:
 - system.reclass.storage.system.openstack_database_cluster
 - system.reclass.storage.system.openstack_message_queue_cluster
 - system.reclass.storage.system.openstack_telemetry_cluster
-- cluster.scale-nfv-contrail.infra
+- cluster.scale_nfv_contrail.infra
 parameters:
   _param:
     salt_master_base_environment: prd
