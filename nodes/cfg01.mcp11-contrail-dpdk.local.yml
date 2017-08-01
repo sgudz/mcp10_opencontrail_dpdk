@@ -1,5 +1,5 @@
 classes:
-- cluster.scale_nfv_contrail.infra.config
+- cluster.mcp11_contrail_dpdk.infra.config
 parameters:
     _param:
         linux_system_codename: xenial

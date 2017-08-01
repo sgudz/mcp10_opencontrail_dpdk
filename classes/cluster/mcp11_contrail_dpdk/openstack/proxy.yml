@@ -15,8 +15,8 @@ classes:
 - system.salt.minion.cert.proxy.pki
 #- system.sphinx.server.doc.reclass
 - service.keepalived.cluster.single
-- cluster.scale_nfv_contrail.infra
-- cluster.scale_nfv_contrail.openstack.dashboard
+- cluster.mcp11_contrail_dpdk.infra
+- cluster.mcp11_contrail_dpdk.openstack.dashboard
 parameters:
   _param:
     keepalived_vip_interface: ens3

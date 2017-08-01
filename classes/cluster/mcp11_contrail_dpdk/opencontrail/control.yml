@@ -12,7 +12,7 @@ classes:
 - system.opencontrail.client.resource.control_node
 - system.opencontrail.client.resource.config_node
 - system.opencontrail.client.resource.database_node
-- cluster.scale_nfv_contrail.infra
+- cluster.mcp11_contrail_dpdk.infra
 parameters:
   _param:
     openstack_version: mitaka

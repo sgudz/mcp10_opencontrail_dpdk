@@ -1,0 +1,3 @@
+classes:
+- system.nova.compute.nfv.sriov
+- cluster.mcp11_contrail_dpdk.openstack.compute

@@ -1,3 +1,0 @@
-classes:
-- cluster.scale_nfv_contrail.openstack.compute
-- system.opencontrail.compute.dpdk

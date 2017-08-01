@@ -4,7 +4,7 @@ classes:
 - system.linux.system.repo.saltstack.xenial
 - system.rabbitmq.server.cluster
 - system.rabbitmq.server.vhost.openstack
-- cluster.scale_nfv_contrail.infra
+- cluster.mcp11_contrail_dpdk.infra
 parameters:
   _param:
     keepalived_vip_interface: ens3
