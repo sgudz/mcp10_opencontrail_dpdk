@@ -1,5 +1,6 @@
 parameters:
   _param:
+    linux_repo_contrail_component: oc40
     opencontrail_version: 4.0
     opencontrail_stats_password: OHf5V2Ts8oiFoGkV
     opencontrail_compute_dns: ${_param:dns_server01}
